@@ -8,6 +8,9 @@ import { Page } from 'components/Page';
 import { TablePagination } from '@trendmicro/react-paginations';
 import '@trendmicro/react-paginations/dist/react-paginations.css';
 import Modal from 'react-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft ,faArrowRight, faSearch,faTimesCircle  } from '@fortawesome/free-solid-svg-icons';
+
 
 const mapStateToProps = (state, ownProps) => ({
 	loading: state.loadingPhotos,
@@ -48,7 +51,6 @@ export class PhotosList extends Component {
 	}
 
 	afterOpenModal() {
-		// references are now sync'd and can be accessed.
 		this.subtitle.style.color = '#000';
 	}
 
@@ -70,6 +72,7 @@ export class PhotosList extends Component {
 			id: PropTypes.number,
 			title: PropTypes.string,
 			idAlbum: PropTypes.number,
+			user : PropTypes.object,
 		}),
 		idAlbum: PropTypes.string,
 		loadPhotos: PropTypes.func,
@@ -84,7 +87,7 @@ export class PhotosList extends Component {
 
 	componentDidMount() {
 		const { photos, loadPhotos, idAlbum } = this.props;
-		photos.length === 0 && loadPhotos(idAlbum);
+		photos.length === 0 && loadPhotos(idAlbum,1,10);
 	}
 
 	render() {
@@ -93,17 +96,20 @@ export class PhotosList extends Component {
 
 		return (
 			<Page title={`Album ${idAlbum} Photos`} loading={loading} backButton>
-				<List>
+				<div className="container">
+					<div className="gallery">
 					{photos.map(photo => {
-
 						return (
-							<ListItem  key={photo.id}>
-								<AnchorLink link={photo.url}>
-									{photo.id} {photo.url}
-								</AnchorLink>
-								<img src={photo.url} width='50px' />
+							<div className="gallery__item" key={photo.id} >
+								<figure className="gallery__figure rollover">
+									<div className="cover-rollover">
+									<img src={photo.url} width='100px' />
+									</div>
+									<div className="hover-item ">
+										<FontAwesomeIcon className="open-image" onClick= {this.openModal.bind(this, photo.id)} icon={ faSearch }/>
+									</div>
+								</figure>
 								{ photo.title }
-								<button onClick= {this.openModal.bind(this, photo.id)}>Open Modal</button>
 								<Modal
 									isOpen={this.state.modalIsOpen[photo.id]}
 									onAfterOpen={this.afterOpenModal}
@@ -111,15 +117,15 @@ export class PhotosList extends Component {
 									style={customStyles}
 									contentLabel="Example Modal"
 								>
-									<h2 ref={subtitle => this.subtitle = subtitle}>title</h2>
-									<button onClick={this.closeModal}>close</button>
+									<FontAwesomeIcon onClick={this.closeModal} icon={ faTimesCircle }/>
+									<h4 ref={subtitle => this.subtitle = subtitle}>{photo.title}</h4>
 									<img src={photo.url}  />
-
 								</Modal>
-							</ListItem>
+							</div>
 						);
 					})}
-				</List>
+					</div>
+				</div>
 				<TablePagination
 					type="full"
 					page={state.page}
@@ -129,8 +135,8 @@ export class PhotosList extends Component {
 						this.setState({ page, pageLength })
 						this.props.loadPhotos(this.props.idAlbum, page, pageLength);
 					}}
-					prevPageRenderer={() => <i className="fa fa-angle-left" />}
-					nextPageRenderer={() => <i className="fa fa-angle-right" />}
+					prevPageRenderer={() => <FontAwesomeIcon icon={ faArrowLeft }/>}
+					nextPageRenderer={() => <FontAwesomeIcon icon={ faArrowRight }/>}
 				/>
 			</Page>
 		);

@@ -1,4 +1,4 @@
-export default async (idAlbum ,page ,pageLength) => {
+export default (idAlbum ,page ,pageLength) => {
 
 	var start = 0;
 

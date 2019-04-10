@@ -5,13 +5,23 @@ export default (page, pageLength) => {
 		 star = page * pageLength - pageLength;
 	}
 
+
 	const albumsQuery = Array(  pageLength  )
 		.fill()
-		.map((_,position) => {
+		.map((_,position ) => {
 			position = position + star;
-			return fetch(`https://jsonplaceholder.typicode.com/albums/`+ position)
+
+			let result =  fetch(`https://jsonplaceholder.typicode.com/albums/`+ position)
 				.then(response => response.json())
-				.then(json => ({ ...json }));
+				.then(json => ({
+					...json
+					,user:null
+
+				}))
+			    ;
+
+			return result;
+
 		});
 
 	return Promise.all(albumsQuery);

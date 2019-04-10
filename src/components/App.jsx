@@ -16,11 +16,6 @@ class App extends Component {
 	static propTypes = {
 		initialLoad: PropTypes.func,
 	};
-
-	componentDidMount() {
-		this.props.initialLoad(1, 10);
-	}
-
 	render() {
 		return (
 			<Router>

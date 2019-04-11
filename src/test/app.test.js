@@ -1,0 +1,68 @@
+import React from 'react';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
+
+import App from '../components/App';
+import AlbumsList from '../components/AlbumsList';
+import PhotosList from '../components/PhotosList';
+import { List } from '../components/List';
+import { AnchorLink } from '../components/Link'
+import { Page } from '../components/Page';
+
+
+
+
+describe('creaction of component AlbumsList,PhotosList,List,AnchorLink and Page', () => {
+
+    it('component App created', () => {
+        const renderedComponent = shallow(<App />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+    it('component AlbumsList created', () => {
+        const renderedComponent = shallow(<AlbumsList />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+    it('component PhotosList created', () => {
+        const renderedComponent = shallow(<PhotosList />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+    it('component List created', () => {
+        const renderedComponent = shallow(<List />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+    it('component AnchorLink created', () => {
+        const renderedComponent = shallow(<AnchorLink />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+    it('component Page created', () => {
+        const renderedComponent = shallow(<Page />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
+
+
+})
+
+
+describe('App contains AlbumsList,PhotosList,List,AnchorLink and Page', () => {
+    it('App contains Header', function() {
+        expect(shallow(<App />).contains(<AlbumsList/>)).toMatchSnapshot();
+    });
+    it('App contains PhotosList', function() {
+        expect(shallow(<App />).contains(<PhotosList/>)).toMatchSnapshot();
+    });
+    it('App contains PhotosList', function() {
+        expect(shallow(<App />).contains(<PhotosList/>)).toMatchSnapshot();
+    });
+    it('App contains Page', function() {
+        expect(shallow(<App />).contains(<Page/>)).toMatchSnapshot();
+    });
+    it('App contains AnchorLink', function() {
+        expect(shallow(<App />).contains(<AnchorLink/>)).toMatchSnapshot();
+    });
+    it('App contains List', function() {
+        expect(shallow(<App />).contains(<List/>)).toMatchSnapshot();
+    });
+})
+

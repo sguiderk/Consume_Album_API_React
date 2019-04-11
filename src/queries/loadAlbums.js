@@ -1,12 +1,14 @@
-export default (page, pageLength) => {
+export default async (page, pageLength) => {
+
+	const albums = await fetch(`https://jsonplaceholder.typicode.com/albums`).then(response => response.json());
+	const albumsAmount = albums.length;
 
 	var star = 1;
     if( page > 1){
 		 star = page * pageLength - pageLength;
 	}
 
-
-	const albumsQuery = Array(  pageLength  )
+	const albumsQuery = Array(  page?pageLength:albumsAmount  )
 		.fill()
 		.map((_,position ) => {
 			position = position + star;
@@ -16,7 +18,6 @@ export default (page, pageLength) => {
 				.then(json => ({
 					...json
 					,user:null
-
 				}))
 			    ;
 

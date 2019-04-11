@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loadPhotos } from 'redux/reducer';
-import { ListItem, List } from 'components/List';
-import { AnchorLink } from 'components/Link'
+import { loadPhotos,loadUser } from 'redux/reducer';
 import { Page } from 'components/Page';
 import { TablePagination } from '@trendmicro/react-paginations';
 import '@trendmicro/react-paginations/dist/react-paginations.css';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft ,faArrowRight, faSearch,faTimesCircle  } from '@fortawesome/free-solid-svg-icons';
+import {faArrowLeft, faArrowRight, faSearch, faTimesCircle, faUser} from '@fortawesome/free-solid-svg-icons';
 
 
 const mapStateToProps = (state, ownProps) => ({
 	loading: state.loadingPhotos,
 	photos: state.photoAlbums[ownProps.idAlbum] || [],
-	album: state.albums.find(album => album.idAlbum === parseInt(ownProps.idAlbum, 10)),
+	users: state.users,
+	album: state.albums.find(album => album.id === parseInt(ownProps.idAlbum, 10)),
 });
 
 const mapDispatchToProps = {
 	loadPhotos: loadPhotos,
+	loadUser: loadUser,
 };
 
 const customStyles = {
@@ -74,6 +74,13 @@ export class PhotosList extends Component {
 			idAlbum: PropTypes.number,
 			user : PropTypes.object,
 		}),
+		users: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.number,
+				name: PropTypes.string,
+				email: PropTypes.string,
+			})
+		),
 		idAlbum: PropTypes.string,
 		loadPhotos: PropTypes.func,
 	};
@@ -87,15 +94,24 @@ export class PhotosList extends Component {
 
 	componentDidMount() {
 		const { photos, loadPhotos, idAlbum } = this.props;
+		this.props.loadUser();
 		photos.length === 0 && loadPhotos(idAlbum,1,10);
 	}
 
 	render() {
-		const { photos, idAlbum, loading, album } = this.props;
+		const { photos, idAlbum, loading, album ,users } = this.props;
 		const state = { ...this.state };
 
+
+
 		return (
-			<Page title={`Album ${idAlbum} Photos`} loading={loading} backButton>
+			<Page title={`${album?album.title:''}`} loading={loading} backButton>
+				<div className="by">
+					<div className="item js-user" data-username="MldGautier">
+						<FontAwesomeIcon icon={ faUser }/>
+					</div>
+					<strong>By</strong>{album?album.user.name:''}
+				</div>
 				<div className="container">
 					<div className="gallery">
 					{photos.map(photo => {
@@ -119,6 +135,12 @@ export class PhotosList extends Component {
 								>
 									<FontAwesomeIcon onClick={this.closeModal} icon={ faTimesCircle }/>
 									<h4 ref={subtitle => this.subtitle = subtitle}>{photo.title}</h4>
+									<div className="by">
+										<div className="item js-user" data-username="MldGautier">
+											<FontAwesomeIcon icon={ faUser }/>
+										</div>
+										<strong>By</strong>{album?album.user.name:''}
+									</div>
 									<img src={photo.url}  />
 								</Modal>
 							</div>

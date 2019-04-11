@@ -1,20 +1,20 @@
-export default (idAlbum ,page ,pageLength) => {
+export default async (idAlbum ,page ,pageLength) => {
 
-	var start = 0;
+	const photos = await fetch(`https://jsonplaceholder.typicode.com/photos/?albumId=`+idAlbum).then(response => response.json());
+	const photosAmount = photos.length;
 
-	if ( page > 1 ) {
-		start = page * pageLength;
+	var star = 1;
+	if( page > 1){
+		star = page * pageLength - pageLength;
 	}
 
-	var end = page * pageLength + pageLength;
-
-	const photosQuery = Array(pageLength)
+	const photosQuery = Array(page?pageLength:photosAmount )
 		.fill()
 		.map((_, position) => {
-			const round = position + 1;
-			return fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${idAlbum}&_start=`+ ( round + start ) +`&_limit=`+ ( round + end ) )
+			position = position + star;
+			return fetch(`https://jsonplaceholder.typicode.com/photos/`+ position )
 				.then(response => response.json())
-				.then(json => ({ round, ...json[0]}));
+				.then(json => ({ ...json }));
 		});
 
 	return Promise.all(photosQuery);

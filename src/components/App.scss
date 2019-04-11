@@ -11,11 +11,11 @@ body {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 100vw;
 	color: #4e4e50;
 	background-color: #1a1a1d;
 	&-window {
 		width: 95vw;
+		min-height: 50vw;
 		background: #f4f7f6;
 		border-radius: 5px;
 		&-title {
@@ -39,11 +39,11 @@ body {
 	display: block;
 }
 .gallery__item {
-	flex: 25%;
-	max-width: 25%;
+	flex: 20% 1;
+	max-width: 20%;
 	position: relative;
 	clear: both;
-	padding-left: 35px;
+	padding-left: 5%;
 	padding-bottom: 35px;
 }
 .gallery__info {
@@ -121,6 +121,11 @@ body {
 	height: 1px;
 	padding: 0 20px;
 	background: #f4f7f6;
+}
+.gallery__footer .box-byuser > *{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
 }
 @media screen and (max-width: 800px) {
 	.gallery__item {

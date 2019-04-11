@@ -10,13 +10,11 @@ import '@trendmicro/react-paginations/dist/react-paginations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft ,faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
 
-
 const mapStateToProps = (state, ownProps) => ({
 	loading: state.loadingAlbums,
 	albums: state.albums,
 	users: state.users,
 });
-
 
 const mapDispatchToProps = {
 	initialLoad: loadAlbums,
@@ -66,13 +64,11 @@ export class AlbumsList extends Component {
 
 		return (
 			<Page title="List of album" loading={loading}>
-				<List>
 					<div className="container">
 						<div className="gallery">
 							{albums.map(album => (
-								<div className="gallery__item" >
-
-									<figure className="gallery__figure rollover"  key={album.id} >
+								<div className="gallery__item"  key={album.id} >
+									<figure className="gallery__figure rollover"  >
 										<AppLink to={`/${album.id}`}>
 											<div className="cover-rollover">
 											{album.title}
@@ -108,7 +104,6 @@ export class AlbumsList extends Component {
 							))}
 						</div>
 					</div>
-				</List>
 				<TablePagination
 					type="full"
 					page={state.page}
@@ -118,6 +113,7 @@ export class AlbumsList extends Component {
 						this.setState({ page, pageLength })
 						this.props.initialLoad(page, pageLength);
 					}}
+					pageLengthMenu={[10,20,50]}
 					prevPageRenderer={() => <FontAwesomeIcon icon={ faArrowLeft }/>}
 					nextPageRenderer={() => <FontAwesomeIcon icon={ faArrowRight }/>}
 				/>

@@ -1,6 +1,9 @@
-export default () => {
+export default async () => {
 
-	const userQuery = Array(  10 )
+	const users = await fetch(`https://jsonplaceholder.typicode.com/uers`).then(response => response.json());
+	const usersAmount = users.length;
+
+	const userQuery = Array(  usersAmount )
 		.fill()
 		.map((_,position ) => {
 

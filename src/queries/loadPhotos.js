@@ -1,6 +1,8 @@
+const conf = require('./../config/api');
+
 export default async (idAlbum ,page ,pageLength) => {
 
-	const photos = await fetch(`https://jsonplaceholder.typicode.com/photos/?albumId=`+idAlbum).then(response => response.json());
+	const photos = await fetch(conf.API_PHOTOS+`/photos/?albumId=`+idAlbum).then(response => response.json());
 	const photosAmount = photos.length;
 
 	var star = 1;
@@ -12,7 +14,7 @@ export default async (idAlbum ,page ,pageLength) => {
 		.fill()
 		.map((_, position) => {
 			position = position + star;
-			return fetch(`https://jsonplaceholder.typicode.com/photos/`+ position )
+			return fetch(conf.API_PHOTOS+`/photos/`+ position )
 				.then(response => response.json())
 				.then(json => ({ ...json }));
 		});

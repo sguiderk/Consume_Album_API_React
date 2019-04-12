@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loadPhotos,loadUser } from 'redux/reducer';
+import { loadPhotos } from 'redux/reducer';
 import { Page } from 'components/Page';
 import { TablePagination } from '@trendmicro/react-paginations';
 import '@trendmicro/react-paginations/dist/react-paginations.css';
@@ -19,7 +19,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
 	loadPhotos: loadPhotos,
-	loadUser: loadUser,
 };
 
 const customStyles = {
@@ -93,8 +92,7 @@ export class PhotosList extends Component {
 	};
 
 	componentDidMount() {
-		const { photos, loadPhotos, idAlbum } = this.props;
-		this.props.loadUser();
+		const { photos, loadPhotos, idAlbum , album , users } = this.props;
 		photos.length === 0 && loadPhotos(idAlbum,1,10);
 	}
 
@@ -102,15 +100,13 @@ export class PhotosList extends Component {
 		const { photos, idAlbum, loading, album ,users } = this.props;
 		const state = { ...this.state };
 
-
-
 		return (
 			<Page title={`${album?album.title:''}`} loading={loading} backButton>
 				<div className="by">
 					<div className="item js-user" data-username="MldGautier">
 						<FontAwesomeIcon icon={ faUser }/>
 					</div>
-					<strong>By</strong>{album?album.user.name:''}
+					<strong>By</strong>{album?album.user.name:null}
 				</div>
 				<div className="container">
 					<div className="gallery">
@@ -152,6 +148,7 @@ export class PhotosList extends Component {
 					type="full"
 					page={state.page}
 					pageLength={state.pageLength}
+					pageLengthMenu={[10,20,50]}
 					totalRecords={state.totalRecords}
 					onPageChange={({ page, pageLength }) => {
 						this.setState({ page, pageLength })

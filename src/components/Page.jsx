@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppLink } from 'components/Link';
-import './Page.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons';
 

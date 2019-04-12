@@ -1,0 +1,18 @@
+/* Inner */
+
+	.inner {
+		margin: 0 auto;
+		width: _size(inner-width);
+		max-width: calc(100% - 2rem);
+
+		@include breakpoint('<=xsmall') {
+			max-width: calc(100% - 3rem);
+		}
+	    > .special{
+	        text-align:center;
+	    }
+		> .special i{
+			font-size: 48px;
+            margin-bottom: 15px; 
+		}
+	}

@@ -1,17 +1,16 @@
+configure({ adapter: new Adapter() });
+import Enzyme, { shallow, render, mount } from 'enzyme';
 import React from 'react';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
-import { shallow } from 'enzyme';
-
-import App from '../components/App';
+import App  from '../components/App';
 import AlbumsList from '../components/AlbumsList';
 import PhotosList from '../components/PhotosList';
 import { List } from '../components/List';
 import { AnchorLink } from '../components/Link'
 import { Page } from '../components/Page';
-
-
+import store from 'redux/storeConfig';
+import { Provider } from 'react-redux';
 
 
 describe('creaction of component AlbumsList,PhotosList,List,AnchorLink and Page', () => {
@@ -26,10 +25,6 @@ describe('creaction of component AlbumsList,PhotosList,List,AnchorLink and Page'
     });
     it('component PhotosList created', () => {
         const renderedComponent = shallow(<PhotosList />);
-        expect(renderedComponent).toMatchSnapshot();
-    });
-    it('component List created', () => {
-        const renderedComponent = shallow(<List />);
         expect(renderedComponent).toMatchSnapshot();
     });
     it('component AnchorLink created', () => {
@@ -66,3 +61,60 @@ describe('App contains AlbumsList,PhotosList,List,AnchorLink and Page', () => {
     });
 })
 
+
+
+
+
+describe('Has Title created Album App', () => {
+
+    it('Title created', () => {
+        const component = mount(<Provider store={store}>
+            <App/>
+        </Provider>);
+
+        expect(component.find("h1").text()).toEqual("Album App");
+    });
+
+})
+
+
+describe('Has header List of album', () => {
+
+    it('header created', () => {
+        const component = mount(<Provider store={store}>
+            <AlbumsList/>
+        </Provider>);
+
+        expect(component.find("header").text()).toEqual("List of album");
+    });
+
+})
+
+describe('Check state of AlbumsList is empty', () => {
+
+    it('state of AlbumsList is empty', () => {
+
+        const cmp = shallow(<Provider store={store}>
+            <AlbumsList />
+        </Provider>);
+
+        expect(cmp.state().storeState.albums).toEqual([]);
+
+    });
+
+})
+
+
+describe('Check state of AlbumsList is empty', () => {
+
+    it('state of AlbumsList is empty', () => {
+        const props = {
+            initialLoad: (1, 10),
+        };
+        const cmp = mount(<Provider store={store}>
+            <AlbumsList  {...props} />
+        </Provider>);
+
+    });
+
+})

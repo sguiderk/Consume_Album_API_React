@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { List, ListItem } from 'components/List';
 import { AnchorLink, AppLink } from 'components/Link'
 import { Page } from 'components/Page';
 import { loadAlbums, loadUser } from 'redux/reducer';

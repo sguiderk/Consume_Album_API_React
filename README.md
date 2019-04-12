@@ -85,10 +85,14 @@ Mobile device
 >         |   App.test.js
 >              
 
-* the src/App contains all components. 
-* the src/config contains the configuration's URL API and the setup for jest. 
-* the src/style contains all sass style.
-* the src/test contains the script test.
+ 
+
+* the redux folder holds all the store configuration, and reducer and actions that I used. If it was a bigger project I would have used selectors as well, but I didn't see a necessity here
+* the  queries folder manages all the calls to the Ergast API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
+* the  components folder holds all React components and the SCSS for said components (I'm more comfortable using SCSS or styled-components than CSS).
+* the config contains the configuration's URL API and the setup for jest. 
+* the styles contains all sass style.
+* the test contains the script test.
 
 
 ## How to install on your computer

@@ -7,7 +7,7 @@ import { TablePagination } from '@trendmicro/react-paginations';
 import '@trendmicro/react-paginations/dist/react-paginations.css';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowLeft, faArrowRight, faSearch, faTimesCircle, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faSearch, faTimesCircle, faUser} from '@fortawesome/free-solid-svg-icons';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -102,22 +102,24 @@ export class PhotosList extends Component {
 
 		return (
 			<Page title={`${album?album.title:''}`} loading={loading} backButton>
-				<div className="by">
+				<div className="box-byuser">
 					<div className="item js-user" data-username="MldGautier">
 						<FontAwesomeIcon icon={ faUser }/>
 					</div>
-					<strong>By</strong>{album?album.user.name:null}
+					<div className="by">
+						<strong>By</strong>{album?album.user.name:null}
+					</div>
 				</div>
 				<div className="container">
 					<div className="gallery">
 					{photos.map(photo => {
 						return (
 							<div className="gallery__item" key={photo.id} >
-								<figure className="gallery__figure rollover">
+								<figure className="gallery__figure rollover background-transparent">
 									<div className="cover-rollover">
 									<img src={photo.url} width='100px' />
 									</div>
-									<div className="hover-item ">
+									<div className="hover-item">
 										<FontAwesomeIcon className="open-image" onClick= {this.openModal.bind(this, photo.id)} icon={ faSearch }/>
 									</div>
 								</figure>
@@ -129,15 +131,19 @@ export class PhotosList extends Component {
 									style={customStyles}
 									contentLabel="Example Modal"
 								>
-									<FontAwesomeIcon onClick={this.closeModal} icon={ faTimesCircle }/>
+									<div className="close-button">
+										<FontAwesomeIcon onClick={this.closeModal} icon={ faTimesCircle }/>
+									</div>
 									<h4 ref={subtitle => this.subtitle = subtitle}>{photo.title}</h4>
-									<div className="by">
+									<div className="box-byuser">
 										<div className="item js-user" data-username="MldGautier">
 											<FontAwesomeIcon icon={ faUser }/>
 										</div>
-										<strong>By</strong>{album?album.user.name:''}
+										<div className="by">
+											<strong>By</strong>{album?album.user.name:null}
+										</div>
 									</div>
-									<img src={photo.url}  />
+									<img src={photo.url} width="500" />
 								</Modal>
 							</div>
 						);

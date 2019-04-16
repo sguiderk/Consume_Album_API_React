@@ -21,10 +21,10 @@ class Footer extends React.Component {
                             </section>
                             <section><h4>Title footer 3</h4>
                                 <ul className="plain">
-                                    <li><a href=""><i className="icon fa-twitter">&nbsp;</i>Twitter</a></li>
-                                    <li><a href=""><i className="icon fa-facebook">&nbsp;</i>Facebook</a></li>
-                                    <li><a href=""><i className="icon fa-instagram">&nbsp;</i>Instagram</a></li>
-                                    <li><a href=""><i className="icon fa-github">&nbsp;</i>Github</a></li>
+                                    <li><a href="">Twitter</a></li>
+                                    <li><a href="">Facebook</a></li>
+                                    <li><a href="">Instagram</a></li>
+                                    <li><a href="">Github</a></li>
                                 </ul>
                             </section>
                         </div>

@@ -17,3 +17,18 @@
 			}
 		}
 	}
+
+	.ReactModal__Overlay {
+		z-index: 1000000;
+	}
+
+    .ReactModal__Overlay .close-button{
+		float: right;
+	}
+
+	.box-byuser > *{
+		display: inline-block;
+	}
+    .box-byuser .item{
+		margin-right: 6px;
+	}

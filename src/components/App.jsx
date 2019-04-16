@@ -7,6 +7,7 @@ import Footer from 'components//Footer';
 import AlbumsList from 'components/AlbumsList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PhotosList from 'components/PhotosList';
+import { Offline, Online } from "react-detect-offline";
 
 const mapDispatchToProps = {
 	initialLoad: loadAlbums,
@@ -28,6 +29,8 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<div className="App-window">
+						<Online>Welcome!</Online>
+						<Offline>You're offline.</Offline>
 						<Header headerProp = {this.state.header}/>
 						<h1 className="App-window-title">Album App</h1>
 						<Route path="/" exact render={() => <AlbumsList />} />

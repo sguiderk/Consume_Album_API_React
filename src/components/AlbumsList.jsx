@@ -7,7 +7,7 @@ import { loadAlbums, loadUser } from 'redux/reducer';
 import { TablePagination } from '@trendmicro/react-paginations';
 import '@trendmicro/react-paginations/dist/react-paginations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft ,faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faEye, faUser} from '@fortawesome/free-solid-svg-icons';
 
 const mapStateToProps = (state, ownProps) => ({
 	loading: state.loadingAlbums,
@@ -68,22 +68,19 @@ export class AlbumsList extends Component {
 							{albums.map(album => (
 								<div className="gallery__item"  key={album.id} >
 									<figure className="gallery__figure rollover"  >
-										<AppLink to={`/${album.id}`}>
-											<div className="cover-rollover">
-											{album.title}
-											</div>
-										</AppLink>
+										<div className="cover-rollover">
+											<AppLink to={`/${album.id}`}>
+													{album.title}
+													<div className="hover-item">
+														<FontAwesomeIcon className="open-image" icon={ faEye }/>
+													</div>
+											</AppLink>
+										</div>
 									</figure>
 									<div className="gallery__info">
 										<div className="gallery__content">
 											<div className="row">
 												<h5>{album.title}</h5>
-											</div>
-											<div className="row row-2col">
-												<div className="box-left">From Croatia</div>
-												<div className="box-right">
-													April 09, 2019
-												</div>
 											</div>
 										</div>
 										<div className="gallery__footer">

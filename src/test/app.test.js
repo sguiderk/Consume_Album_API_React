@@ -61,10 +61,6 @@ describe('App contains AlbumsList,PhotosList,List,AnchorLink and Page', () => {
     });
 })
 
-
-
-
-
 describe('Has Title created Album App', () => {
 
     it('Title created', () => {
@@ -105,16 +101,15 @@ describe('Check state of AlbumsList is empty', () => {
 })
 
 
-describe('Check state of AlbumsList is empty', () => {
+describe('Check state of PhotosList is empty', () => {
 
-    it('state of AlbumsList is empty', () => {
-        const props = {
-            initialLoad: (1, 10),
-        };
+    it('state of PhotosList is empty', () => {
+
         const cmp = mount(<Provider store={store}>
-            <AlbumsList  {...props} />
+            <AlbumsList />
         </Provider>);
 
+        expect(cmp.state().storeState.photos).toEqual(undefined);
     });
 
 })

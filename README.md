@@ -2,28 +2,49 @@
 This single page application that Consume the JSONPlaceholder Album API.
 ## What’s Included?
 * This app has everything to build a modern single-page React app:
-* React, JSX, es6, boilerplate and Flow syntax support.
+* Functional programming 
+* React, JSX, Redux ,es6, boilerplate and Flow syntax support.
 * Auto prefixed CSS, so you don’t need -webkit- or other prefixes.
 * Preprocessor scripting language Sass.
 * A fast-interactive unit test runner with built-in support for coverage reporting with Jest and Enzyme.
 * A live development server that warns about common mistakes.
 
 ## Components app 
-The app has 6 components Header, Content, SectionListRace ,SectionSeason , loading and footer:
+The app has 7 components Header , App , AlbumsList , PhotosList, Page, loading, List and footer:
 * Header component gets the header.
-* Content component gets the content.
-* Loading component get animation loading while the sectionListRace load data.
+* App component Manage all the components.
+* AlbumsList component gets the Album with pagination.
+* PhotosList component gets the Album with pagination.
+* Page component appers the loading while data is loading.
+* Link component for generating the link.
+* Loading component get animation loading while the reducer load data.
 * Footer  component get the footer content
 
 ## Screenshot and demonstration of this app 
 
-The app is responsive 
+As the specified in the requierement I've respected the first mobile approach 
+,and the app is responsive.
 
-Tablet device 
+### desktop list of album 
+![](https://i.imgur.com/wImkr5Oh.png)
+### desktop list of photo 
+![](https://i.imgur.com/ZQTA3tSh.png)
+### Modal to zoom the picture
+![](https://i.imgur.com/g5Prbpsh.png)
+### Loading animation
+![](https://i.imgur.com/YaA1T8Kh.png)
+### if you're not connected to internet an message is appeared 
+![](https://i.imgur.com/4AMi8Dzh.png)
+### Tablet device list of album 
+![](https://i.imgur.com/xg69o1ih.png)
+### Mobile device of album 
+![](https://i.imgur.com/vduzNduh.png)
 
-Mobile device
+## Style and url are parametrable
 
-
+I've built a theme for this project so could change the colors of the style font-size 
+or font-familly feel free to check the styles/libs/_vars.css
+, and the config/api.js you could change the url for the API.
 
 ## Folder Structure
 >
@@ -38,19 +59,26 @@ Mobile device
 >     |       logo.svg
 >     +---src
 >     |   index.js
->     +---api
->     |       Race.js
+>     +---config
+>     |       api.js
+>     +---constants
+>     |       ActionTypes.js
+>     +---queries
+>     |      loadAlbums.js
+>     |      loadPhotos.js
+>     |      loadUsers.js
+>     +---redux
+>     |      reducers.js
+>     |      storeconfig.js
 >     +---components
 >     |       App.js
 >     |       Content.js
 >     |       Footer.js
 >     |       Header.js
 >     |       Loading.js
->     |       registerServiceWorker.js
+>     |       Link.js
 >     |       AlbumsList.js
 >     |       PhotoList.js
->     +---config
->     |       api.js
 >     +---styles
 >     |   |   main.scss
 >     |   +---base
@@ -88,8 +116,8 @@ Mobile device
  
 
 * the redux folder holds all the store configuration, and reducer and actions that I used. If it was a bigger project I would have used selectors as well, but I didn't see a necessity here
-* the  queries folder manages all the calls to the Ergast API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
-* the  components folder holds all React components and the SCSS for said components (I'm more comfortable using SCSS or styled-components than CSS).
+* the  queries folder manages all the calls to the Album API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
+* the components folder holds all React components and the SCSS for said components
 * the config contains the configuration's URL API and the setup for jest. 
 * the styles contains all sass style.
 * the test contains the script test.
@@ -147,10 +175,10 @@ Then it will open http://yourhost:3000 and the application will be running.
 
 ## Component used for this app
 
-**Redux-thunk : ** Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
+_**Redux-thunk : **_ Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
 Link package : [link](https://www.npmjs.com/package/redux-thunk)
 
-**React-paginations : ** A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
+_**React-paginations : **_ A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
 Link package : [link](https://www.npmjs.com/package/@trendmicro/react-paginations)
 
 _**React-modal :**_ Accessible modal dialog component for React.JS.

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { AnchorLink, AppLink } from 'components/Link'
+import { AppLink } from 'components/Link'
 import { Page } from 'components/Page';
 import { loadAlbums, loadUser } from 'redux/reducer';
 import { TablePagination } from '@trendmicro/react-paginations';
@@ -67,7 +67,7 @@ export class AlbumsList extends Component {
 						<div className="gallery">
 							{albums.map(album => (
 								<div className="gallery__item"  key={album.id} >
-									<figure className="gallery__figure rollover"  >
+									<figure className="gallery__figure rollover" style={{ backgroundColor: album.user ?album.user.color:null }} >
 										<div className="cover-rollover">
 											<AppLink to={`/${album.id}`}>
 													{album.title}

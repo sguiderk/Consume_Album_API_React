@@ -18,6 +18,41 @@
 		}
 	}
 
+	.App {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: #4e4e50;
+		background-color: #1a1a1d;
+		&-window {
+			min-height: 50vw;
+			background: #f4f7f6;
+			border-radius: 5px;
+			&-title {
+				font-size: 3rem;
+				text-align: center;
+			}
+			&-check-connection {
+				position:absolute;
+				top: 0px;
+				right: 50%;
+				z-index: 10002;
+			}
+			&-online {
+				color: green;
+			}
+			&-offline {
+				color: red;
+			}
+		}
+	}
+	.Link {
+		text-decoration: none;
+		cursor: pointer;
+		color: #c3073f;
+	}
+
+
 	.ReactModal__Overlay {
 		z-index: 1000000;
 	}

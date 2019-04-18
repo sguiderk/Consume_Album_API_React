@@ -5,8 +5,8 @@ export default async (page, pageLength) => {
 	const albums = await fetch(conf.API_PHOTOS+`/albums`).then(response => response.json());
 	const albumsAmount = albums.length;
 
-	var star = 1;
-    if( page > 1){
+	let star = 1;
+    if ( page > 1){
 		 star = page * pageLength - pageLength;
 	}
 

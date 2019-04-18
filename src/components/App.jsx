@@ -29,8 +29,14 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<div className="App-window">
-						<Online>Welcome!</Online>
-						<Offline>You're offline.</Offline>
+						<div className="App-window-check-connection">
+							<div className="App-window-online">
+							  <Online>Welcome!</Online>
+							</div>
+							<div className="App-window-offline">
+								<Offline >You're offline.</Offline>
+							</div>
+						</div>
 						<Header headerProp = {this.state.header}/>
 						<h1 className="App-window-title">Album App</h1>
 						<Route path="/" exact render={() => <AlbumsList />} />

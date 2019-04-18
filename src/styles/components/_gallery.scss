@@ -12,8 +12,8 @@
 	display: block;
 }
 .gallery__item {
-	flex: 20% 1;
-	max-width: 20%;
+	flex: 100% ;
+	max-width: 100%;
 	position: relative;
 	clear: both;
 	padding-left: 5%;
@@ -27,7 +27,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	background: #dddddd;
+	background: _palette(bg);
 	margin: 0;
 	padding: 20px;
 	position: relative;
@@ -37,7 +37,7 @@
 }
 .rollover {
 	display: block;
-	background: #E6EAEA;
+	background: _palette(fg-light);
 	transition: all 0.3s ease-in-out;
 }
 .rollover.background-transparent{
@@ -70,7 +70,7 @@
 .rollover .open-image{
 	position: absolute;
 	top: 50%;
-	left: 62px;
+	left: 45%;
 }
 .rollover .hover-item {
 	visibility: hidden;
@@ -99,25 +99,34 @@
 	position: absolute;
 	top: 0;
 	left: 20px;
-	width: calc(100% - 80px);
+	width: calc(100% - 40px);
 	height: 1px;
 	padding: 0 20px;
-	background: #f4f7f6;
+	background:  _palette(fg-light);
 }
 .gallery__footer .box-byuser > *{
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 5px;
 }
-@media screen and (max-width: 800px) {
+
+
+@media screen and (min-width: 600px) {
 	.gallery__item {
 		flex: 50%;
 		max-width: 50%;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 800px) {
 	.gallery__item {
-		flex: 100%;
-		max-width: 100%;
+		flex: 33.33%;
+		max-width: 33.33%;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.gallery__item {
+		flex: 20%;
+		max-width: 20%;
 	}
 }

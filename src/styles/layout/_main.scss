@@ -22,11 +22,11 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		color: #4e4e50;
+		color:_palette(color-first);
 		background-color: #1a1a1d;
 		&-window {
 			min-height: 50vw;
-			background: #f4f7f6;
+			background: _palette(bg);
 			border-radius: 5px;
 			&-title {
 				font-size: 3rem;
@@ -39,24 +39,22 @@
 				z-index: 10002;
 			}
 			&-online {
-				color: green;
+				color: _palette(success);
 			}
 			&-offline {
-				color: red;
+				color: _palette(danger);
 			}
 		}
 	}
 	.Link {
 		text-decoration: none;
 		cursor: pointer;
-		color: #c3073f;
+		color: _palette(color-second);
 	}
-
 
 	.ReactModal__Overlay {
 		z-index: 1000000;
 	}
-
     .ReactModal__Overlay .close-button{
 		float: right;
 	}

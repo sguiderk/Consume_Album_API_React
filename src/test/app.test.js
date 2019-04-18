@@ -6,7 +6,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import App  from '../components/App';
 import AlbumsList from '../components/AlbumsList';
 import PhotosList from '../components/PhotosList';
-import { List } from '../components/List';
 import { AnchorLink } from '../components/Link'
 import { Page } from '../components/Page';
 import store from 'redux/storeConfig';
@@ -55,9 +54,6 @@ describe('App contains AlbumsList,PhotosList,List,AnchorLink and Page', () => {
     });
     it('App contains AnchorLink', function() {
         expect(shallow(<App />).contains(<AnchorLink/>)).toMatchSnapshot();
-    });
-    it('App contains List', function() {
-        expect(shallow(<App />).contains(<List/>)).toMatchSnapshot();
     });
 })
 

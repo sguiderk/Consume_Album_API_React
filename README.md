@@ -143,8 +143,7 @@ Then it will open http://localhost:3000 and the application will be running.
 
 ## Test
 
-The script of test app.test.js contains 17 cases of test and 11 of them are used with
-Snapshot, it tests to automate the process and create unit tests that can easily be overwritten and managed through time, and for the 6 We check if the API work perfectly and check the render of title and section with toEqual() function.
+The script of test app.test.js contains 14 cases of test.
 
 ## To Run Tests
 

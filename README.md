@@ -25,16 +25,16 @@ The app has 7 components Header , App , AlbumsList , PhotosList, Page, loading, 
 As the specified in the requierement I've respected the first mobile approach 
 ,and the app is responsive.
 
-### desktop list of album 
+### Desktop list of album 
 ![](https://i.imgur.com/wImkr5Oh.png)
-### desktop list of photo 
+### Desktop list of photo 
 ![](https://i.imgur.com/ZQTA3tSh.png)
 ### Modal to zoom the picture
 ![](https://i.imgur.com/g5Prbpsh.png)
 ### Loading animation
 ![](https://i.imgur.com/YaA1T8Kh.png)
-### if you're not connected to internet an message is appeared 
-![](https://i.imgur.com/4AMi8Dzh.png)
+### If you're not connected to internet an message is appeared 
+![](https://i.imgur.com/a0YBUEXl.png)
 ### Tablet device list of album 
 ![](https://i.imgur.com/xg69o1ih.png)
 ### Mobile device of album 

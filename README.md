@@ -176,23 +176,23 @@ Then it will open http://yourhost:3000 and the application will be running.
 
 ## Component used for this app
 
-_**Redux-thunk : **_ Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
+Redux-thunk : Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
 Link package : [link](https://www.npmjs.com/package/redux-thunk)
 
-_**React-paginations : **_ A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
+React-paginations : A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
 Link package : [link](https://www.npmjs.com/package/@trendmicro/react-paginations)
 
-_**React-modal :**_  Accessible modal dialog component for React.JS.
+React-modal :Accessible modal dialog component for React.JS.
 Link package :  [link](https://www.npmjs.com/package/react-modal)
 
-_**Node-sass :**_ Node-sass is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass.
+Node-sass : Node-sass is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass.
 Link package :  [link](https://www.npmjs.com/package/node-sass).
 
-_**sass-loader :**_ Loads a Sass/SCSS file and compiles it to CSS.
+sass-loader :Loads a Sass/SCSS file and compiles it to CSS.
 Link package :  [link](https://www.npmjs.com/package/sass-loader).
 
-_**Jest  : **_ Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase.
+Jest  : Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase.
 Link package :  [link](https://www.npmjs.com/package/jest).
 
-_**Enzyme :**_ Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
+Enzyme :Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
 Link package :  [link](https://www.npmjs.com/package/enzyme).

@@ -169,7 +169,7 @@ Then it will open http://yourhost:3000 and the application will be running.
 
 `# connect to the container:`
 
-`docker exec -it imagefincompare bash`
+`docker exec -it consumeapialbum bash`
 
 `npm test`
 

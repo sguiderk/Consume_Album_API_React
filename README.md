@@ -1,29 +1,31 @@
 # React Front-end Challenge
-This single page application that Consume the JSONPlaceholder Album API.
+This single page application that Consumes the JSONPlaceholder Album API, I've chosen react & redux
+to provide a performant solution (amount of requests & bytes, compression, render-blocking Js,
+lazy load).
 ## What’s Included?
 * This app has everything to build a modern single-page React app:
 * Functional programming 
-* React, JSX, Redux ,es6, boilerplate and Flow syntax support.
+* React, JSX, Redux, es6, boilerplate and Flow syntax support.
 * Auto prefixed CSS, so you don’t need -webkit- or other prefixes.
 * Preprocessor scripting language Sass.
 * A fast-interactive unit test runner with built-in support for coverage reporting with Jest and Enzyme.
 * A live development server that warns about common mistakes.
 
 ## Components app 
-The app has 7 components Header , App , AlbumsList , PhotosList, Page, loading, List and footer:
+The app has 7 components Header, App, AlbumsList, PhotosList, Page, loading, List and footer:
 * Header component gets the header.
 * App component Manage all the components.
 * AlbumsList component gets the Album with pagination.
 * PhotosList component gets the Album with pagination.
-* Page component appers the loading while data is loading.
+* Page component appears the loading while data is loading.
 * Link component for generating the link.
-* Loading component get animation loading while the reducer load data.
+* Loading component gets animation loading while the reducer load data.
 * Footer  component get the footer content
 
 ## Screenshot and demonstration of this app 
 
-As the specified in the requierement I've respected the first mobile approach 
-,and the app is responsive.
+As specified in the requirements I've respected the first mobile approach 
+, and the app is responsive.
 
 ### Desktop list of album 
 ![](https://i.imgur.com/wImkr5Oh.png)
@@ -40,11 +42,11 @@ As the specified in the requierement I've respected the first mobile approach
 ### Mobile device of album 
 ![](https://i.imgur.com/vduzNduh.png)
 
-## Style and url are parametrable
+## Style and URL are parameterizable
 
-I've built a theme for this project so could change the colors of the style font-size 
-or font-familly feel free to check the styles/libs/_vars.css
-, and the config/api.js you could change the url for the API.
+I've built a theme for this project so could change the colours of the style font-size 
+or font-family feel free to check the styles/libs/_vars.css
+, and the config/api.js you could change the URL for the API.
 
 ## Folder Structure
 >
@@ -116,10 +118,10 @@ or font-familly feel free to check the styles/libs/_vars.css
  
 
 * the redux folder holds all the store configuration, and reducer and actions that I used. If it was a bigger project I would have used selectors as well, but I didn't see a necessity here
-* the  queries folder manages all the calls to the Album API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
+* the queries folder manages all the calls to the Album API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
 * the components folder holds all React components and the SCSS for said components
 * the config contains the configuration's URL API and the setup for jest. 
-* the styles contains all sass style.
+* the styles contain all sass style.
 * the test contains the script test.
 
 
@@ -194,9 +196,3 @@ Link package :  [link](https://www.npmjs.com/package/jest).
 
 _**Enzyme :**_ Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
 Link package :  [link](https://www.npmjs.com/package/enzyme).
-
-
-
-
-
-

@@ -3,8 +3,8 @@ This single page application that Consumes the JSONPlaceholder Album API, I've c
 to provide a performant solution (amount of requests & bytes, compression, render-blocking Js,
 lazy load).
 ## What’s Included?
-* This app has everything to build a modern single-page React app:
-* Functional programming 
+* This app has everything to build a modern single-page React app.
+* Functional programming.
 * React, JSX, Redux, es6, boilerplate and Flow syntax support.
 * Auto prefixed CSS, so you don’t need -webkit- or other prefixes.
 * Preprocessor scripting language Sass.

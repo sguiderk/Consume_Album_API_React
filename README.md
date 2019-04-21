@@ -1,50 +1,52 @@
 # React Front-end Challenge
-This single page application that Consume the JSONPlaceholder Album API.
+This single page application that Consumes the JSONPlaceholder Album API, I've chosen react & redux
+to provide a performant solution (amount of requests & bytes, compression, render-blocking Js,
+lazy load).
 ## What’s Included?
 * This app has everything to build a modern single-page React app:
 * Functional programming 
-* React, JSX, Redux ,es6, boilerplate and Flow syntax support.
+* React, JSX, Redux, es6, boilerplate and Flow syntax support.
 * Auto prefixed CSS, so you don’t need -webkit- or other prefixes.
 * Preprocessor scripting language Sass.
 * A fast-interactive unit test runner with built-in support for coverage reporting with Jest and Enzyme.
 * A live development server that warns about common mistakes.
 
 ## Components app 
-The app has 7 components Header , App , AlbumsList , PhotosList, Page, loading, List and footer:
+The app has 7 components Header, App, AlbumsList, PhotosList, Page, loading, List and footer:
 * Header component gets the header.
 * App component Manage all the components.
 * AlbumsList component gets the Album with pagination.
 * PhotosList component gets the Album with pagination.
-* Page component appers the loading while data is loading.
+* Page component appears the loading while data is loading.
 * Link component for generating the link.
-* Loading component get animation loading while the reducer load data.
+* Loading component gets animation loading while the reducer load data.
 * Footer  component get the footer content
 
 ## Screenshot and demonstration of this app 
 
-As the specified in the requierement I've respected the first mobile approach 
-,and the app is responsive.
+As specified in the requirements I've respected the first mobile approach 
+, and the app is responsive.
 
-### desktop list of album 
+### Desktop list of album 
 ![](https://i.imgur.com/wImkr5Oh.png)
-### desktop list of photo 
+### Desktop list of photo 
 ![](https://i.imgur.com/ZQTA3tSh.png)
 ### Modal to zoom the picture
 ![](https://i.imgur.com/g5Prbpsh.png)
 ### Loading animation
 ![](https://i.imgur.com/YaA1T8Kh.png)
-### if you're not connected to internet an message is appeared 
-![](https://i.imgur.com/4AMi8Dzh.png)
+### If you're not connected to internet an message is appeared 
+![](https://i.imgur.com/a0YBUEXl.png)
 ### Tablet device list of album 
 ![](https://i.imgur.com/xg69o1ih.png)
 ### Mobile device of album 
 ![](https://i.imgur.com/vduzNduh.png)
 
-## Style and url are parametrable
+## Style and URL are parameterizable
 
-I've built a theme for this project so could change the colors of the style font-size 
-or font-familly feel free to check the styles/libs/_vars.css
-, and the config/api.js you could change the url for the API.
+I've built a theme for this project so could change the colours of the style font-size 
+or font-family feel free to check the styles/libs/_vars.css
+, and the config/api.js you could change the URL for the API.
 
 ## Folder Structure
 >
@@ -116,10 +118,10 @@ or font-familly feel free to check the styles/libs/_vars.css
  
 
 * the redux folder holds all the store configuration, and reducer and actions that I used. If it was a bigger project I would have used selectors as well, but I didn't see a necessity here
-* the  queries folder manages all the calls to the Album API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
+* the queries folder manages all the calls to the Album API. Both of them require a lot of simultaneous promise calls since there wasn't (or at least I couldn't find) a single endpoint that gave me all the data I needed.
 * the components folder holds all React components and the SCSS for said components
 * the config contains the configuration's URL API and the setup for jest. 
-* the styles contains all sass style.
+* the styles contain all sass style.
 * the test contains the script test.
 
 
@@ -143,8 +145,7 @@ Then it will open http://localhost:3000 and the application will be running.
 
 ## Test
 
-The script of test app.test.js contains 17 cases of test and 11 of them are used with
-Snapshot, it tests to automate the process and create unit tests that can easily be overwritten and managed through time, and for the 6 We check if the API work perfectly and check the render of title and section with toEqual() function.
+The script of test app.test.js contains 14 cases of test.
 
 ## To Run Tests
 
@@ -169,35 +170,29 @@ Then it will open http://yourhost:3000 and the application will be running.
 
 `# connect to the container:`
 
-`docker exec -it imagefincompare bash`
+`docker exec -it consumeapialbum bash`
 
 `npm test`
 
 ## Component used for this app
 
-_**Redux-thunk : **_ Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
+Redux-thunk : Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action.
 Link package : [link](https://www.npmjs.com/package/redux-thunk)
 
-_**React-paginations : **_ A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
+React-paginations : A ReactJS component to render a pagination. By installing this component and writing only a little bit of CSS.
 Link package : [link](https://www.npmjs.com/package/@trendmicro/react-paginations)
 
-_**React-modal :**_ Accessible modal dialog component for React.JS.
+React-modal :Accessible modal dialog component for React.JS.
 Link package :  [link](https://www.npmjs.com/package/react-modal)
 
-_**Node-sass :**_ Node-sass is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass.
+Node-sass : Node-sass is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass.
 Link package :  [link](https://www.npmjs.com/package/node-sass).
 
-_**sass-loader :**_ Loads a Sass/SCSS file and compiles it to CSS.
+sass-loader :Loads a Sass/SCSS file and compiles it to CSS.
 Link package :  [link](https://www.npmjs.com/package/sass-loader).
 
-**Jest  : ** Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase.
+Jest  : Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase.
 Link package :  [link](https://www.npmjs.com/package/jest).
 
-_**Enzyme :**_ Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
+Enzyme :Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
 Link package :  [link](https://www.npmjs.com/package/enzyme).
-
-
-
-
-
-

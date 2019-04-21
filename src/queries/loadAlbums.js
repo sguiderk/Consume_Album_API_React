@@ -6,8 +6,8 @@ export default async (page, pageLength) => {
 	const albumsAmount = albums.length;
 
 	let start = 1;
-    if ( page > 1){
-		start = page * pageLength - pageLength;
+        if ( page > 1) {
+	    start = page * pageLength - pageLength;
 	}
 
 	const albumsQuery = Array(  page?pageLength:albumsAmount  )
